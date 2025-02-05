@@ -84,7 +84,7 @@
     font-size: 0.55em;
   }
 
-  .reveal :is(ul, ol) p { /* Resets the display settings for paragraphs inside lists */  
+  & :is(ul, ol) p { /* Resets the display settings for paragraphs inside lists */  
     display: unset
   }
 }

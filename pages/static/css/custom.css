@@ -1,0 +1,6 @@
+@import "../assets/pmfixer/pmfixer.css";
+@import "../assets/pmfixer/monokai.css"; /* highlight.js theme */
+
+.left-aligned * {
+  text-align: left;
+}

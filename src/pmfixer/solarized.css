@@ -1,0 +1,345 @@
+/**
+ * Solarized Light theme for reveal.js.
+ * Author: Achim Staebler
+ *
+ * Solarized colors by Ethan Schoonover
+ *
+ * Adapted for Logseq by Peter Yanase, http://kneedeepjapan.com
+ **/
+
+/*********************************************
+* FONTS
+*********************************************/
+@import url(./fonts/league-gothic/league-gothic.css);
+@import url(./fonts/lato/lato.css);
+@import url(./fonts/fira-code/fira-code.css);
+
+/*********************************************
+ * GLOBAL STYLES
+ *********************************************/
+:root {
+  --r-background-color: rgb(253, 246, 227);
+  --r-main-font: Lato;
+  --r-main-font-size: 40px;
+  --r-main-color: rgb(101, 123, 131);
+  --r-block-margin: 20px;
+  --r-heading-margin: 0 0 20px 0;
+  --r-heading-font: League Gothic;
+  --r-heading-color: rgb(88, 110, 117);
+  --r-heading-line-height: 1.2;
+  --r-heading-letter-spacing: normal;
+  --r-heading-text-transform: uppercase;
+  --r-heading-text-shadow: none;
+  --r-heading-font-weight: normal;
+  --r-heading1-text-shadow: none;
+  --r-heading1-size: 3.77em;
+  --r-heading2-size: 2.11em;
+  --r-heading3-size: 1.55em;
+  --r-heading4-size: 1em;
+  --r-code-font: Fira Code;
+  --r-link-color: rgb(38, 139, 210);
+  --r-link-color-dark: rgb(32, 118, 178);
+  --r-link-color-hover: rgb(77, 162, 222);
+  --r-selection-background-color: rgb(211, 54, 130);
+  --r-selection-color: rgb(255, 255, 255);
+  --r-overlay-element-bg-color: 0, 0, 0;
+  --r-overlay-element-fg-color: 240, 240, 240;
+}
+
+.reveal-viewport {
+  background: rgb(253, 246, 227);
+  background-color: var(--r-background-color);
+}
+
+.reveal {
+  font-family: var(--r-main-font);
+  font-size: var(--r-main-font-size);
+  font-weight: normal;
+  color: var(--r-main-color);
+
+  & ::selection {
+    color: var(--r-selection-color);
+    background: var(--r-selection-background-color);
+    text-shadow: none;
+  }
+
+  & .slides :is(section, section > section) {
+    line-height: 1.3;
+    font-weight: inherit;
+  }
+}
+
+/*********************************************
+ * HEADERS
+ *********************************************/
+.reveal {
+  & :is(h1, h2, h3, h4, h5, h6) {
+    margin: var(--r-heading-margin);
+    color: var(--r-heading-color);
+    font-family: var(--r-heading-font);
+    font-weight: var(--r-heading-font-weight);
+    line-height: var(--r-heading-line-height);
+    letter-spacing: var(--r-heading-letter-spacing);
+    text-transform: var(--r-heading-text-transform);
+    text-shadow: var(--r-heading-text-shadow);
+    word-wrap: break-word;
+  }
+
+  & h1 {
+    font-size: var(--r-heading1-size);
+  }
+
+  & h2 {
+    font-size: var(--r-heading2-size);
+  }
+
+  & h3 {
+    font-size: var(--r-heading3-size);
+  }
+
+  & h4 {
+    font-size: var(--r-heading4-size);
+  }
+
+  & h1 {
+    text-shadow: var(--r-heading1-text-shadow);
+  }
+}
+
+/*********************************************
+ * OTHER
+ *********************************************/
+.reveal {
+  & p {
+    margin: var(--r-block-margin) 0;
+    line-height: 1.3;
+  }
+
+  /* Remove trailing margins after titles */
+  & .block-body div:last-child {
+    & :is(h1, h2, h3, h4, h5, h6):last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  /* Ensure certain elements are never larger than the slide itself */
+  & :is(img, video, iframe) {
+    max-width: 95%;
+    max-height: 95%;
+  }
+
+  & :is(strong, b) {
+    font-weight: bold;
+  }
+
+  & em {
+    font-style: italic;
+  }
+
+  & :is(ol, dl, ul) {
+    display: inline-block;
+    text-align: left;
+    margin: 0 0 0 1em;
+  }
+
+  & ol {
+    list-style-type: decimal;
+  }
+
+  & ul {
+    list-style-type: disc;
+  }
+
+  & ul ul {
+    list-style-type: square;
+  }
+
+  & ul ul ul {
+    list-style-type: circle;
+  }
+
+  & :is(ul ul, ul ol, ol ol, ol ul) {
+    display: block;
+    margin-left: 40px;
+  }
+
+  & dt {
+    font-weight: bold;
+  }
+
+  & dd {
+    margin-left: 40px;
+  }
+
+  & blockquote {
+    display: block;
+    position: relative;
+    width: 70%;
+    margin: var(--r-block-margin) auto;
+    padding: 5px;
+    font-style: italic;
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2);
+  }
+
+  & blockquote :is(p:first-child, p:last-child) {
+    display: inline-block;
+  }
+
+  & q {
+    font-style: italic;
+  }
+
+  & pre {
+    display: block;
+    position: relative;
+    width: 90%;
+    margin: var(--r-block-margin) auto;
+    text-align: left;
+    font-size: 0.55em;
+    font-family: var(--r-code-font);
+    line-height: 1.2em;
+    word-wrap: break-word;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
+  }
+
+  & code {
+    font-family: var(--r-code-font);
+    text-transform: none;
+    tab-size: 2;
+  }
+
+  & pre code {
+    display: block;
+    padding: 5px;
+    overflow: auto;
+    max-height: 400px;
+    word-wrap: normal;
+  }
+
+  & .code-wrapper {
+    white-space: normal;
+  }
+
+  & .code-wrapper code {
+    white-space: pre;
+  }
+
+  & table {
+    margin: auto;
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+
+  & table th {
+    font-weight: bold;
+  }
+
+  & table :is(th, td) {
+    text-align: left;
+    padding: 0.2em 0.5em 0.2em 0.5em;
+    border-bottom: 1px solid;
+  }
+
+  & table :is(th[align="center"], td[align="center"]) {
+    text-align: center;
+  }
+
+  & table :is(th[align="right"], td[align="right"]) {
+    text-align: right;
+  }
+
+  & table tbody tr:last-child :is(th, td) {
+    border-bottom: none;
+  }
+
+  & sup {
+    vertical-align: super;
+    font-size: smaller;
+  }
+
+  & sub {
+    vertical-align: sub;
+    font-size: smaller;
+  }
+
+  & small {
+    display: inline-block;
+    font-size: 0.6em;
+    line-height: 1.2em;
+    vertical-align: top;
+  }
+
+  & small * {
+    vertical-align: top;
+  }
+
+  & img {
+    margin: var(--r-block-margin) 0;
+  }
+}
+
+/*********************************************
+ * LINKS
+ *********************************************/
+.reveal {
+  & a {
+    color: var(--r-link-color);
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+
+  & a:hover {
+    color: var(--r-link-color-hover);
+    text-shadow: none;
+    border: none;
+  }
+
+  & .roll span:after {
+    color: rgb(255, 255, 255);
+    background: var(--r-link-color-dark);
+  }
+}
+
+/*********************************************
+ * Frame helper
+ *********************************************/
+.reveal {
+  & .r-frame {
+    border: 4px solid var(--r-main-color);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  }
+
+  & a .r-frame {
+    transition: all 0.15s linear;
+  }
+
+  & a:hover .r-frame {
+    border-color: var(--r-link-color);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.55);
+  }
+}
+
+/*********************************************
+ * NAVIGATION CONTROLS
+ *********************************************/
+.reveal .controls {
+  color: var(--r-link-color);
+}
+
+/*********************************************
+ * PROGRESS BAR
+ *********************************************/
+.reveal .progress {
+  background: rgba(0, 0, 0, 0.2);
+  color: var(--r-link-color);
+}
+
+/*********************************************
+ * PRINT BACKGROUND
+ *********************************************/
+@media print {
+  .backgrounds {
+    background-color: var(--r-background-color);
+  }
+}
